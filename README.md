@@ -108,4 +108,21 @@ Problemas comunes
 - Error de conexión a DB: asegúrate que la base de datos existe y credenciales de .env son correctas.
 - JWT no válido: regenerar secret y volver a autenticarse (login).
 
+## Postman
+
+- La colección de Postman está incluida en: `postman/api-users-laravel.postman_collection.json`.
+- IMPORTANTE: la colección usa la variable `{{base_url}}` en las URLs. Crea un Environment en Postman con:
+  - base_url = http://127.0.0.1:8000
+  - token = (rellena después del login)
+
+Uso rápido
+1. Levanta la API localmente:
+   - php artisan serve
+2. Importa la colección y crea el Environment con `base_url`.
+3. Ejecuta la petición "Login Usuario" para obtener el JWT y copia el token en la variable `token`.
+4. Las peticiones protegidas usan:
+   - Authorization: Bearer {{token}}
+   - Accept: application/json
+
+
 Eso es todo: sigue los pasos y luego abre issues en el repo si necesitas documentación adicional.
